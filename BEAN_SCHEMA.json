@@ -1,0 +1,131 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GCIS Bean Schema",
+  "description": "Standardized structure for coffee green or roasted bean analysis under GCIS Core Standard",
+  "type": "object",
+  "required": [
+    "origin",
+    "variety",
+    "process",
+    "altitude_m",
+    "moisture_percent",
+    "density_g_per_l",
+    "roast",
+    "analysis_context"
+  ],
+  "properties": {
+
+    "origin": {
+      "type": "object",
+      "required": ["country"],
+      "properties": {
+        "country": { "type": "string" },
+        "region": { "type": "string" },
+        "farm": { "type": "string" }
+      }
+    },
+
+    "variety": {
+      "type": "string",
+      "description": "Botanical variety (e.g. Bourbon, Typica, Gesha)"
+    },
+
+    "process": {
+      "type": "string",
+      "enum": [
+        "Washed",
+        "Natural",
+        "Honey",
+        "Anaerobic",
+        "Carbonic Maceration",
+        "Experimental",
+        "Other"
+      ]
+    },
+
+    "altitude_m": {
+      "type": "number",
+      "minimum": 0
+    },
+
+    "moisture_percent": {
+      "type": "number",
+      "minimum": 5,
+      "maximum": 15
+    },
+
+    "density_g_per_l": {
+      "type": "number",
+      "minimum": 500,
+      "maximum": 900
+    },
+
+    "roast": {
+      "type": "object",
+      "required": ["stage"],
+      "properties": {
+
+        "stage": {
+          "type": "string",
+          "enum": ["Green", "Light", "Medium", "Medium-Dark", "Dark"]
+        },
+
+        "agtron": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+
+        "development_time_ratio_percent": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 40
+        },
+
+        "rgb_estimation": {
+          "type": "object",
+          "properties": {
+            "r": { "type": "number", "minimum": 0, "maximum": 255 },
+            "g": { "type": "number", "minimum": 0, "maximum": 255 },
+            "b": { "type": "number", "minimum": 0, "maximum": 255 },
+            "lighting_condition": {
+              "type": "string",
+              "description": "e.g. natural daylight, tungsten, unknown"
+            },
+            "camera_bias_assumed": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+
+    "analysis_context": {
+      "type": "object",
+      "required": ["intended_brew_method"],
+      "properties": {
+
+        "intended_brew_method": {
+          "type": "string",
+          "enum": [
+            "Espresso",
+            "Pour Over",
+            "Immersion",
+            "Cold Brew",
+            "Hybrid",
+            "Unknown"
+          ]
+        },
+
+        "target_flavor_profile": {
+          "type": "string"
+        },
+
+        "known_defects": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}
