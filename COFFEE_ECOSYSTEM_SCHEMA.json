@@ -1,0 +1,74 @@
+{
+  "$schema": "https://alternativecoffeeos.org/gcis.schema.json",
+  "standard": "Genesis Coffee Intelligence Standard",
+  "version": "1.0",
+  "bean": {
+    "origin": {
+      "country": "string",
+      "region": "string",
+      "altitude_masl": "number",
+      "confidence": "number"
+    },
+    "variety": "string",
+    "process": {
+      "type": "washed | natural | honey | anaerobic | other",
+      "confidence": "number"
+    },
+    "density_estimation": {
+      "level": "low | medium | high",
+      "confidence": "number"
+    }
+  },
+  "roast": {
+    "estimated_level": "light | medium | medium-dark | dark",
+    "rgb_analysis": {
+      "r": "number",
+      "g": "number",
+      "b": "number",
+      "lighting_kelvin": "number",
+      "corrected_estimation": "string"
+    },
+    "surface_oil_detected": "boolean",
+    "development_inference": {
+      "maillard_phase": "low | medium | high",
+      "caramelization_level": "low | medium | high",
+      "confidence": "number"
+    }
+  },
+  "grind": {
+    "recommended_range_micron": {
+      "min": "number",
+      "max": "number"
+    },
+    "brew_method_compatibility": ["v60", "espresso", "aeropress", "immersion"]
+  },
+  "water": {
+    "recommended_temp_celsius": "number",
+    "tds_target_percent": "number",
+    "mineral_balance": {
+      "gh": "number",
+      "kh": "number"
+    }
+  },
+  "extraction_model": {
+    "predicted_flow_behavior": "stable | risk_channeling | over_resistance",
+    "predicted_extraction_yield_percent": "number",
+    "uncertainty": "number"
+  },
+  "flavor_projection": {
+    "acidity": "low | medium | high",
+    "sweetness": "low | medium | high",
+    "body": "low | medium | high",
+    "clarity": "low | medium | high"
+  },
+  "falsifier": [
+    "string"
+  ],
+  "assumptions": [
+    "string"
+  ],
+  "unknowns": [
+    "string"
+  ],
+  "confidence_score": "number"
+}
