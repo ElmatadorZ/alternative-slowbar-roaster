@@ -1,0 +1,16 @@
+{
+  "roast_profile": {
+    "bean_temperature_curve": "array",
+    "rate_of_rise_curve": "array",
+    "development_time_ratio": "float",
+    "final_temperature_c": "float",
+    "total_roast_time_sec": "integer",
+    "airflow_pattern": "string",
+    "color_index": {
+      "agtron": "integer",
+      "rgb_reference": "string"
+    },
+    "stability_score": "float",
+    "uncertainty_margin": "float"
+  }
+}
