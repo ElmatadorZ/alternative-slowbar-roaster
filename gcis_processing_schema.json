@@ -1,0 +1,22 @@
+{
+  "processing_profile": {
+    "processing_type": "string",
+    "fermentation": {
+      "type": "string",
+      "duration_hours": "float",
+      "temperature_c": "float",
+      "ph_range": "string",
+      "brix_change": "string",
+      "microbial_type": "string"
+    },
+    "drying": {
+      "method": "string",
+      "duration_days": "float",
+      "humidity_range": "string"
+    },
+    "moisture_percent": "float",
+    "water_activity": "float",
+    "storage_conditions": "string",
+    "uncertainty_margin": "float"
+  }
+}
